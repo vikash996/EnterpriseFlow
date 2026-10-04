@@ -1,0 +1,1 @@
+package com.enterpriseflow.repository; import com.enterpriseflow.entity.TaskComment; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface TaskCommentRepository extends JpaRepository<TaskComment,UUID>{List<TaskComment> findByTaskIdOrderByCreatedAtAsc(UUID taskId);}

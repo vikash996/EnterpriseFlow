@@ -1,0 +1,1 @@
+package com.enterpriseflow.knowledge.dto; import jakarta.validation.constraints.*; import java.time.Instant; import java.util.List; import java.util.UUID; public record MeetingRequest(@NotBlank @Size(max=200)String title,UUID projectId,Instant scheduledAt,@Size(max=50000)String transcript,@Size(max=80)String timezone,@Size(max=1000)String externalLink,List<UUID> inviteeIds){}

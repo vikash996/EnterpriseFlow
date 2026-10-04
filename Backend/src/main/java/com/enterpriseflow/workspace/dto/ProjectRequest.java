@@ -1,0 +1,1 @@
+package com.enterpriseflow.workspace.dto; import jakarta.validation.constraints.*; import java.time.LocalDate; public record ProjectRequest(@NotBlank @Size(max=160) String name,@Size(max=10000) String description,@Pattern(regexp="PLANNING|ACTIVE|ON_HOLD|COMPLETED",message="Invalid project status") String status,LocalDate dueDate){}

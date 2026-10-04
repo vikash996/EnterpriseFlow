@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  * { border-color: rgb(30 41 59 / .8); }
+  body { @apply bg-slate-950 text-slate-100 antialiased; background-image: radial-gradient(circle at 50% -20%, rgb(30 64 175 / .16), transparent 35rem); }
+  button, a, input, select, textarea { @apply transition duration-150; }
+  button { @apply disabled:cursor-not-allowed disabled:opacity-55; }
+  ::selection { @apply bg-indigo-500/40 text-white; }
+  :focus-visible { @apply outline-none ring-2 ring-indigo-400 ring-offset-2 ring-offset-slate-950; }
+}
+
+@layer components {
+  .app-content { @apply min-w-0 flex-1; }
+  .panel { @apply rounded-2xl border border-slate-800/90 bg-slate-900/65 p-5 shadow-xl shadow-slate-950/20 backdrop-blur-sm sm:p-6; }
+  .field { @apply w-full rounded-xl border border-slate-700/90 bg-slate-950/70 px-3.5 py-2.5 text-sm text-slate-100 shadow-inner shadow-black/10 placeholder:text-slate-500 hover:border-slate-600 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/15; }
+  .button-primary { @apply inline-flex items-center justify-center rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-950/30 hover:bg-indigo-400 active:scale-[.98]; }
+  .button-secondary { @apply inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:border-slate-500 hover:bg-slate-800 active:scale-[.98]; }
+  .page-eyebrow { @apply text-xs font-semibold uppercase tracking-[.16em] text-indigo-300; }
+  .metric-card { @apply rounded-2xl border border-slate-800 bg-slate-900/65 p-5 shadow-lg shadow-slate-950/10; }
+}
+@media (min-width: 1024px) { body.has-app-shell .app-content { margin-left: 16rem; padding-top: 4.25rem; } body.has-app-shell footer { margin-left: 16rem; } }
+@media (max-width: 1023px) { body.has-app-shell .app-content { padding-top: 4.25rem; } }

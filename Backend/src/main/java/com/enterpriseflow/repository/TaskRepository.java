@@ -1,0 +1,2 @@
+package com.enterpriseflow.repository; import com.enterpriseflow.entity.Task; import org.springframework.data.jpa.repository.*; import java.util.*;
+public interface TaskRepository extends JpaRepository<Task,UUID>{@EntityGraph(attributePaths="assignee") List<Task> findByProjectId(UUID projectId); List<Task> findByProjectCompanyId(UUID companyId); List<Task> findByAssigneeIdAndProjectCompanyId(UUID assigneeId,UUID companyId); long countByStatus(String status);}

@@ -1,0 +1,27 @@
+# Frontend
+Frontend/node_modules/
+Frontend/.next/
+Frontend/out/
+
+# Backend
+Backend/target/
+Backend/.mvn/
+
+# Local Maven caches
+.maven-home/
+.maven-repository/
+
+# Environment / secrets
+.env
+.env.*
+!**/.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+AI MODULE/oracleJdk-26/
+Frontend/.next-*/
+Frontend/tsconfig.tsbuildinfo
+Backend/data/

@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-enterpriseflow}
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+  backend:
+    build: ./Backend
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-enterpriseflow}
+      DB_USERNAME: ${DB_USERNAME:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+      FRONTEND_URL: http://localhost:3000
+    depends_on: [db]
+    ports: ["8080:8080"]
+  frontend:
+    build: ./Frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8080
+    depends_on: [backend]
+    ports: ["3000:3000"]
+volumes: {postgres-data: {}}
